@@ -11,8 +11,10 @@ helpers do
   end
 end
 
-get "/" do 
-	haml :index
+get "/" do
+	@page_content = RDiscount.new(File.open("pages/index.md").read).to_html
+	@title = "Frankly" 
+	haml :page
 end
 
 get "/:page" do

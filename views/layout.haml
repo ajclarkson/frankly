@@ -2,9 +2,20 @@
 %html
 	%head
 		%title 
-			=@title || "Adam James Clarkson"
+			=@title || "Frankly"
 		%meta{ :charset => 'utf-8'}
 		%link{ :href => '/images/favicon.png', :rel => 'icon', :type => 'image/png'}
+		%link{ :href => '/css/site.css', :rel => 'stylesheet', :media => 'screen'}
 	%body
+	<a href="https://github.com/ajclarkson/frankly"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+	%header.wrap.cf
+		%section#branding
+			%h1 
+				%a{:href => '/'} Frankly
+			%p.tagline Simple Web Publishing
 		= render :partial => "shared/nav"
-		= yield
+	= yield
+
+	%footer
+		%section#footer-content.wrap
+			&copy; 2013 <a href="#">@ajclarkson</a>

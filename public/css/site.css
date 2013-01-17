@@ -1,0 +1,107 @@
+body {
+	margin:0;
+	padding:0;
+	font:125%/1.5 Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {font-family:Helvetica, sans-serif;color:#222;text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */ 
+h2 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
+
+h3 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */ 
+h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
+h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
+h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
+p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.wrap {
+	max-width:760px;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+#branding {
+	float:left;
+}
+header {
+	margin-top:5em;
+	margin-bottom:2em;
+}
+
+header h1 {
+	font-size: 3.75em; line-height: 1.2em; /* 60px / 72px */
+	letter-spacing:-1px;
+	margin-bottom:0;
+
+}
+
+header h1 a, header h1 a:visited {
+	color:black;
+	text-decoration:none;
+}
+
+header h1 a:hover, header h1 a:active {
+	color:#aaa;
+}
+
+header .tagline {
+	margin-top:-.9em;
+}
+
+nav {
+	float:right;
+}
+
+nav ul {
+	list-style:none;
+	margin:2em 2em 2em 0;
+	
+}
+
+nav li {
+	display:inline;
+
+	
+	
+}
+nav li:after {
+	content: '\00A0 \2022 \00A0';
+}
+nav li:last-child:after {
+	content:'';
+}
+
+
+h2 em {
+	font-family:Georgia, serif;
+	font-weight:normal;
+	text-shadow:none;
+}
+
+
+
+
+footer {
+	background:#efefef;
+	border-top:1px solid: #222;
+	padding:1em 0;
+
+	
+	width:100%;
+	font-size: 0.875em; line-height: 1.7142857142857142857142857142857em;
+}
+
+#footer-content {
+
+}
