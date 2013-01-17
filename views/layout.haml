@@ -1,0 +1,10 @@
+!!! 5
+%html
+	%head
+		%title 
+			=@title || "Adam James Clarkson"
+		%meta{ :charset => 'utf-8'}
+		%link{ :href => '/images/favicon.png', :rel => 'icon', :type => 'image/png'}
+	%body
+		= render :partial => "shared/nav"
+		= yield
