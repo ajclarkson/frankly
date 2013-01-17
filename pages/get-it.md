@@ -1,12 +1,12 @@
 # Download
 
-The aim of Frankly was that to use it, you wouldn't particularly have to know how it works. It is designed with people who code in mind, but you certainly don't have to be a developer to get to grips with all of this. I think that's certianly true as well, you can head over to the [GitHub repo](http://github.com/ajclarkson/frankly) right now, and grab the code for this very site. That should be as much documentation as you'd need. Just in case though, there's a few hints and tips on this page as well.
+The aim of Frankly was that to use it, you wouldn't particularly have to know how it works. It is designed with people who code in mind, but you certainly don't have to be a developer to get to grips with all of this. I think that's certainly true as well, you can head over to the [GitHub repo](http://github.com/ajclarkson/frankly) right now, and grab the code for this very site. That should be as much documentation as you'd need. Just in case though, there's a few hints and tips on this page as well.
 
 ## Requirements
 
-You should have some knowledge of Ruby. By this I mean you should know how to install a Ruby development environment, and optionally how to deploy to something like Heroku if you so desire. You <strong>don't</strong> need to know how to write a CMS in Ruby, so don't be daunted. I've done that part for you.
+You should have some knowledge of Ruby. By this I mean you should know how to install a Ruby development environment, and optionally how to deploy to something like Heroku if you so desire. You __don't__ need to know how to write a CMS in Ruby, so don't be daunted. I've done that part for you.
 
-As for the templates and such, they are all created using the <a href="#">HAML</a> language at the minute. If you've never used HAML before in your life, don't worry because you can, though I recommend using HAML, replace it with HTML and the site will still function fine. Infact you will notice in the templates in use here, there is some embedded HTML that I may have been too lazy to convert to HAML...
+As for the templates and such, they are all created using the [HAML](http://haml.info) language at the minute. If you've never used HAML before in your life, don't worry because you can, though I recommend using HAML, replace it with HTML and the site will still function fine. Infact you will notice in the templates in use here, there is some embedded HTML that I may have been too lazy to convert to HAML...
 
 ## Templates
 

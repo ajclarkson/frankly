@@ -15,6 +15,21 @@ h6 {margin: 0; font-size: 1.125em; line-height: 1.333333333333333333333333333333
 p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
 small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
 
+
+a:link, a:visited {
+	color:#4388a8;
+	text-decoration:none;
+	transition: opacity .2s ease-in-out;
+   -moz-transition: opacity .2s ease-in-out;
+   -webkit-transition: opacity .2s ease-in-out;
+}
+
+a:hover, a:active {
+	padding-bottom:5px;
+	border-bottom:1px dotted  #4388a8;
+	color:#aaa;
+}
+
 .cf:before,
 .cf:after {
     content: " ";
@@ -53,6 +68,7 @@ header h1 a, header h1 a:visited {
 
 header h1 a:hover, header h1 a:active {
 	color:#aaa;
+	border:none;
 }
 
 header .tagline {
@@ -61,6 +77,7 @@ header .tagline {
 
 nav {
 	float:right;
+	color:#222;
 }
 
 nav ul {
@@ -93,15 +110,11 @@ h2 em {
 
 
 footer {
-	background:#efefef;
-	border-top:1px solid: #222;
+	text-align:center;
+	border-top:1px solid #ccc;
 	padding:1em 0;
-
-	
+	margin-top:5em;
+	color:#aaa;
 	width:100%;
 	font-size: 0.875em; line-height: 1.7142857142857142857142857142857em;
-}
-
-#footer-content {
-
 }
