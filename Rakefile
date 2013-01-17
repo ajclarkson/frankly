@@ -58,23 +58,27 @@ task :generate do
 	}
 
 	posts = []
-
-	Dir['posts/*'].map { |p| post = File.basename(p, '.*')
-		@post_content = RDiscount.new(File.open(p).read).to_html
+	files = Dir.glob("posts/*").reverse
+	puts files
+	files.each_with_index do |file, index|
+		post = File.basename(file, '.*')
+		@post_content = RDiscount.new(File.open(file).read).to_html
 		post_title = Nokogiri::HTML::DocumentFragment.parse(@post_content).css('h1').inner_html()
-
+		next_file = files[index - 1] unless index == 0
+		previous_file = files[index+1] unless index == files.size - 1
 		posts.push({
 			:title => post_title,
-			:slug => "/blog/"+post
+			:slug => "/blog/"+post,
+			:moddate => File.mtime(file),
+			:next => next_file,
+			:previous => previous_file
 			})
-
-	}
+	end
 
 	File.open('_post-index.yaml', 'w'){ |f|
-		f.write posts.ya2yaml
+		f.write posts.sort_by{|post| post[:moddate]}.reverse.ya2yaml
 
 	}
-
 
 
 end 

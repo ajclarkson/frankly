@@ -31,5 +31,9 @@ end
 
 get "/blog/:post" do
 	@post_content = RDiscount.new(File.open("posts/"+ params["post"]+ ".md").read).to_html
+	@posts = YAML::load(File.open("_post-index.yaml"))
+	
+	# @post_data = @posts.select{|p| p[:slug] == post}
+
 	haml :post
 end
