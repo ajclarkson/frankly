@@ -9,3 +9,7 @@ gem "rdiscount"
 gem "nokogiri"
 gem "ya2yaml"
 
+group :development do
+	gem 'heroku'
+end
+

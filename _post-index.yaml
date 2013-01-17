@@ -1,0 +1,6 @@
+--- 
+- 
+  ? !ruby/symbol slug
+  : /blog/hello-world
+  ? !ruby/symbol title
+  : "Hello, World!"

@@ -1,0 +1,8 @@
+%section#site-content.wrap
+	%article
+		%h1 Archive
+		%ul
+		- @posts.each do |post|
+			%li
+				%a{:href => "#{post[:slug]}" }= post[:title]
+				
