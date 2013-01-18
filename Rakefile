@@ -17,6 +17,8 @@ require 'nokogiri'
 require 'yaml'
 require 'ya2yaml'
 
+$KCODE = "U"
+
 desc "Generate Page Navigation"
 task :generate do 
 	pages = []
@@ -52,20 +54,28 @@ task :generate do
 	}
 	File.open('./views/shared/nav.haml', 'w'){ |f|
 		f.write("%nav\n\t%ul\n")
-		pages.each_with_index do |page|
+		pages.each do |page|
 			f.write("\t\t%li\n\t\t\t%a{:href=>'" + page[:slug] + "'} " + page[:title] + "\n")
 		end
 	}
 
 	posts = []
 	files = Dir.glob("posts/*").reverse
-	puts files
 	files.each_with_index do |file, index|
 		post = File.basename(file, '.*')
 		@post_content = RDiscount.new(File.open(file).read).to_html
 		post_title = Nokogiri::HTML::DocumentFragment.parse(@post_content).css('h1').inner_html()
-		next_file = files[index - 1] unless index == 0
-		previous_file = files[index+1] unless index == files.size - 1
+		next_file = previous_file = ""
+		if index != 0 && !File.basename(next_file, '.*').nil?
+			next_file = "/blog/"+File.basename(files[index-1], '.*')
+			puts next_file
+		end
+
+		if index != files.size-1 && !File.basename(previous_file, '.*').nil?
+			previous_file = "/blog/"+File.basename(files[index+1], '.*')
+			puts previous_file
+		end
+
 		posts.push({
 			:title => post_title,
 			:slug => "/blog/"+post,
