@@ -10,15 +10,15 @@ helpers do
     end
   end
   def show_post_navigation(previous_name="Older", next_name="Newer")
-  	nav_string = ""
+  	nav_string = "<nav id='post-navigation' class='cf'>"
   	if @previous_article != "" 
-  		nav_string.concat("<a href='"+@previous_article+"'>"+ previous_name + "</a>")
+  		nav_string.concat("<div id='previous-navigation'><a href='"+@previous_article+"'>"+ previous_name + "</a></div>")
   	end
 
   	if @next_article != ""
-  		nav_string.concat("<a href='"+@next_article+"'>"+ next_name +"</a>")
+  		nav_string.concat("<div id='next-navigation'><a href='"+@next_article+"'>"+ next_name +"</a></div>")
   	end
-  	return nav_string
+  	return nav_string.concat("</nav>")
   end
 end
 

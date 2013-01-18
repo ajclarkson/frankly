@@ -75,18 +75,18 @@ header .tagline {
 	margin-top:-.9em;
 }
 
-nav {
+header nav {
 	float:right;
 	color:#222;
 }
 
-nav ul {
+header nav ul {
 	list-style:none;
 	margin:2em 2em 2em 0;
 	
 }
 
-nav li {
+header nav li {
 	display:inline;
 
 	
@@ -107,7 +107,16 @@ h2 em {
 }
 
 
+#post-navigation {
 
+}
+
+#previous-navigation {
+	float:left;
+}
+#next-navigation {
+	float:right;
+}
 
 footer {
 	text-align:center;
