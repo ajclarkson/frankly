@@ -3,26 +3,11 @@
   ? !ruby/symbol author
   : ajclarkson
   ? !ruby/symbol date
-  : "2013-01-21 11:47"
-  ? !ruby/symbol filename
-  : 2013-01-21-talking-to-the-world-again
-  ? !ruby/symbol next
-  : ""
-  ? !ruby/symbol previous
-  : /blog/hello-world
-  ? !ruby/symbol slug
-  : /blog/talking-to-the-world-again
-  ? !ruby/symbol title
-  : "Talking to the world again"
-- 
-  ? !ruby/symbol author
-  : ajclarkson
-  ? !ruby/symbol date
   : "2013-01-21 11:45"
   ? !ruby/symbol filename
   : 2013-01-21-hello-world
   ? !ruby/symbol next
-  : /blog/talking-to-the-world-again
+  : ""
   ? !ruby/symbol previous
   : ""
   ? !ruby/symbol slug
