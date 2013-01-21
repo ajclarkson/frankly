@@ -16,6 +16,7 @@ require 'rdiscount'
 require 'nokogiri'
 require 'yaml'
 require 'ya2yaml'
+require 'stringex'
 
 
 desc "Generate Page Navigation"
@@ -84,7 +85,7 @@ task :generate_post_index do
 			 puts "YAML Exception reading #{file}: #{e.message}"
 		end	
 	end
-	posts = posts.sort_by{|post| post[:date]}
+	posts = posts.sort_by{|post| post[:date]}.reverse
 	posts.each_with_index do |post, index|
 		if index != 0
 			post[:next] = posts[index-1][:slug]
@@ -95,6 +96,28 @@ task :generate_post_index do
 		end
 	end
 	File.open('_post-index.yaml', 'w+'){ |f|
-		f.write posts.ya2yaml
+		f.write posts.sort_by{|post| post[:date]}.reverse.ya2yaml
 	}
+end
+
+task :new_post, :title do |t, args|
+	if args.title
+		title = args.title
+	else
+		title = get_stdin("Enter a title for your new post: ")
+	end
+
+	filename = "./posts/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.md"
+	puts "Creating new post: #{filename}"
+	File.open(filename, 'w+') do |post|
+		post.puts("---")
+		post.puts("title: #{title}")
+		post.puts("date: #{Time.now.strftime('%Y-%m-%d %H:%M')}")
+		post.puts("slug: #{title.to_url}")
+		post.puts("---")
+	end
+end
+def get_stdin(message)
+  print message
+  STDIN.gets.chomp
 end

@@ -1,27 +1,27 @@
 --- 
 - 
   ? !ruby/symbol date
-  : 01/01/2013
+  : "2013-01-21 11:47"
   ? !ruby/symbol filename
-  : order-aware
+  : 2013-01-21-talking-to-the-world-again
   ? !ruby/symbol next
   : ""
   ? !ruby/symbol previous
-  : /blog/hello
+  : /blog/hello-world
   ? !ruby/symbol slug
-  : /blog/ordering-posts
+  : /blog/talking-to-the-world-again
   ? !ruby/symbol title
-  : "Order Aware Blog Engine"
+  : "Talking to the world again"
 - 
   ? !ruby/symbol date
-  : 10/10/2012
+  : "2013-01-21 11:45"
   ? !ruby/symbol filename
-  : hello-world
+  : 2013-01-21-hello-world
   ? !ruby/symbol next
-  : /blog/ordering-posts
+  : /blog/talking-to-the-world-again
   ? !ruby/symbol previous
   : ""
   ? !ruby/symbol slug
-  : /blog/hello
+  : /blog/hello-world
   ? !ruby/symbol title
-  : "Hello World"
+  : "Hello, World!"
