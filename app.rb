@@ -1,6 +1,4 @@
-# app.rb
 set :haml, :format => :html5
-
 helpers do
   def render(*args)
     if args.first.is_a?(Hash) && args.first.keys.include?(:partial)
@@ -14,7 +12,6 @@ helpers do
   	if @post_meta[:previous] != "" 
   		nav_string.concat("<div id='previous-navigation'><a href='"+@post_meta[:previous]+"'>"+ previous_name + "</a></div>")
   	end
-
   	if @post_meta[:next] != ""
   		nav_string.concat("<div id='next-navigation'><a href='"+@post_meta[:next]+"'>"+ next_name +"</a></div>")
   	end
@@ -30,6 +27,7 @@ end
 
 get "/blog" do
 	@posts = YAML::load(File.open("_post-index.yaml"))
+	@title = "Archive &mdash; Frankly"
 	haml :blog
 end
 
@@ -47,5 +45,6 @@ get "/blog/:post" do
 	markdown = post_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
 	@post_title = @post_meta[:title]
 	@post_content = RDiscount.new(markdown.post_match).to_html
+	@title = "#{@post_title} &mdash; Frankly"
 	haml :post
 end

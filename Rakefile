@@ -47,7 +47,7 @@ task :generate do
 			end
 			pages.push({
 				:title => page_title,
-				:slug => page
+				:slug => "/"+page
 				})
 			
 		end

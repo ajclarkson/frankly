@@ -2,7 +2,7 @@
 %html
 	%head
 		%title 
-			=@title || "Frankly"
+			=@title ||= "Frankly"
 		%meta{ :charset => 'utf-8'}
 		%link{ :href => '/images/favicon.png', :rel => 'icon', :type => 'image/png'}
 		%link{ :href => '/css/site.css', :rel => 'stylesheet', :media => 'screen'}
