@@ -48,9 +48,13 @@ get "/blog" do
 end
 
 get "/:page" do
-	@page_content = RDiscount.new(File.open("pages/" + params["page"] + ".md").read).to_html
-	page_title = Nokogiri::HTML::DocumentFragment.parse(@page_content).css('h1').inner_html()
-	@title = "#{page_title} &mdash; Frankly"
+  pages = YAML::load(File.open"_page-index.yaml")
+  @page_meta = pages.find{|x| x[:slug] == "/#{params[:page]}"}
+  page_file_contents = File.read("pages/#{@page_meta[:filename]}.md")
+  markdown = page_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
+  @page_title = @page_meta[:title]
+  @page_content = RDiscount.new(markdown.post_match).to_html
+	@title = "#{@page_title} &mdash; Frankly"
 	haml :page
 end
 

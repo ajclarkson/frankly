@@ -1,28 +1,29 @@
 ## Site Configuration Variables
 
-show_home_link				=	false	#Should an automatically generated 'Home' link be added to site navigation
-show_blog_link				=	true	# Show automatically generated 'Blog' link in the menu
-page_title_as_link_text		=	true 	# Use first h1 in the page markdown as the link text for menu
-									 	# Otherwise, the filename will be used
-default_author				=	"ajclarkson"
-
-
+show_home_link				=	false			# Should an automatically generated 'Home' link be added to site navigation
+show_blog_link				=	true			# Show automatically generated 'Blog' link in the menu
+blog_link_name				=	"Blog"			# Link text to be used for the 'Blog' link
+default_author				=	"ajclarkson"	# Name attributed to authoring pages/blog posts by default. Can be 
+												# overridden in the page/post front matter
 
 ##### DO NOT EDIT BELOW THIS LINE UNLESS YOU KNOW WHAT YOU"RE DOING! 
 
 require 'rubygems'
 require 'bundler/setup'
-require 'rdiscount'
-require 'nokogiri'
 require 'yaml'
 require 'ya2yaml'
 require 'stringex'
 
+task :generate do
+	puts "Generating your site..."
+	Rake::Task["generate_page_navigation"].execute
+	Rake::Task["generate_post_index"].execute
+	puts "Completed successfully. Deploy your site to make changes live!"
+end 
 
-desc "Generate Page Navigation"
-task :generate do 
+task :generate_page_navigation do
+	puts "Creating Site Navigation..."
 	pages = []
-	
 	if show_home_link
 		pages.push({
 			:title => "Home",
@@ -32,38 +33,43 @@ task :generate do
 
 	if show_blog_link
 		pages.push({
-			:title => "Blog",
+			:title => blog_link_name,
 			:slug => '/blog'
 			})
 	end
-	Dir['pages/*'].map { |p| page = File.basename(p, '.*')
-		@page_content = RDiscount.new(File.open(p).read).to_html
-		page_title = Nokogiri::HTML::DocumentFragment.parse(@page_content).css('h1').inner_html()
-		
-		unless File.basename(p) == "index.md"
-			unless page_title_as_link_text
-				page_title == page
-
+	files = Dir.glob("pages/*")
+	files.each do |file|
+		file_contents = File.read(file)
+		unless File.basename(file) == "index.md"
+			begin
+				if (markdown = file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m))
+					article = markdown.post_match
+					metadata = YAML.load(markdown[:headers])
+					pages.push({
+						:filename => File.basename(file, '.*'),
+						:title => metadata['title'],
+						:slug => "/"+metadata['slug']
+						})
+				end
+			rescue => e
+				puts "YAML Exception reading #{file}: #{e.message}"
 			end
-			pages.push({
-				:title => page_title,
-				:slug => "/"+page
-				})
-			
 		end
-	}
-	File.open('./views/shared/nav.haml', 'w'){ |f|
+	end
+
+	File.open('./views/shared/nav.haml', 'w+'){ |f|
 		f.write("%nav\n\t%ul\n")
 		pages.each do |page|
 			f.write("\t\t%li\n\t\t\t%a{:href=>'" + page[:slug] + "'} " + page[:title] + "\n")
 		end
 	}
-
-	Rake::Task["generate_post_index"].execute
-
-end 
+	File.open('_page-index.yaml', 'w+'){ |f|
+		f.write pages.ya2yaml
+	}
+end
 
 task :generate_post_index do
+	puts "Indexing Blog Entries..."
 	posts = []
 	files = Dir.glob("posts/*")
 	files.each do |file|
@@ -101,6 +107,20 @@ task :generate_post_index do
 	}
 end
 
+task :new_page do
+	title = get_stdin("Enter a title for your new page: ")
+	filename = "./pages/#{title.to_url}.md"
+	puts "Creating new page: #{filename}"
+	File.open(filename, 'w+') do |page|
+		page.puts("---")
+		page.puts("title: #{title}")
+		page.puts("date: #{Time.now.strftime('%Y-%m-%d %H:%M')}")
+		page.puts("slug: #{title.to_url}")
+		page.puts("author: #{default_author}")
+		page.puts("---")
+	end
+end
+
 task :new_post, :title do |t, args|
 	if args.title
 		title = args.title
@@ -119,6 +139,7 @@ task :new_post, :title do |t, args|
 		post.puts("---")
 	end
 end
+
 def get_stdin(message)
   print message
   STDIN.gets.chomp
