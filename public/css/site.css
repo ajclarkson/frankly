@@ -104,7 +104,9 @@ h2 em {
 }
 
 
-
+.github-ribbon {
+	position: absolute; top: 0; right: 0; border: 0;
+}
 article header {
 	text-align:center;
 	font-style:italic;
