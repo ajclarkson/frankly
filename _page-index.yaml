@@ -1,0 +1,13 @@
+--- 
+- 
+  ? !ruby/symbol slug
+  : /blog
+  ? !ruby/symbol title
+  : Blog
+- 
+  ? !ruby/symbol filename
+  : download
+  ? !ruby/symbol slug
+  : /get-frankly
+  ? !ruby/symbol title
+  : Download
