@@ -4,7 +4,7 @@ show_home_link				=	false	#Should an automatically generated 'Home' link be adde
 show_blog_link				=	true	# Show automatically generated 'Blog' link in the menu
 page_title_as_link_text		=	true 	# Use first h1 in the page markdown as the link text for menu
 									 	# Otherwise, the filename will be used
-
+default_author				=	"ajclarkson"
 
 
 
@@ -77,6 +77,7 @@ task :generate_post_index do
 					:title => metadata['title'],
 					:slug => "/blog/"+metadata['slug'],
 					:date => metadata['date'],
+					:author => metadata['author'],
 					:next => "",
 					:previous => ""
 					})
@@ -114,6 +115,7 @@ task :new_post, :title do |t, args|
 		post.puts("title: #{title}")
 		post.puts("date: #{Time.now.strftime('%Y-%m-%d %H:%M')}")
 		post.puts("slug: #{title.to_url}")
+		post.puts("author: #{default_author}")
 		post.puts("---")
 	end
 end

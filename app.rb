@@ -17,8 +17,21 @@ helpers do
   	end
   	return nav_string.concat("</nav>")
   end
-  def show_post_date(format="%d/%m/%Y")
-  	return Time.parse(@post_meta[:date]).strftime(format)
+  def show_post_date(format="%d/%m/%Y", post_meta=@post_meta)
+
+  	return Time.parse(post_meta[:date]).strftime(format)
+  end
+  def ordinalize
+    if (11..13).include?(self % 100)
+      "#{self}th"
+    else
+      case self % 10
+        when 1; "#{self}st"
+        when 2; "#{self}nd"
+        when 3; "#{self}rd"
+        else    "#{self}th"
+      end
+    end
   end
 end
 

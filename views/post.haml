@@ -1,6 +1,12 @@
 %section#site-content.wrap
 	%article
-		%h1= @post_title
-		=show_post_date
+		%header
+			%h1= @post_title
+			%time.small 
+				On: 
+				=show_post_date("%A %d, %Y")
+				by 
+				=@post_meta[:author]
 		=@post_content
-		=show_post_navigation("← Older", "Newer →")
+		%footer
+			=show_post_navigation("← Older", "Newer →")
