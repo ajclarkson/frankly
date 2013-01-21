@@ -11,7 +11,7 @@
   ? !ruby/symbol slug
   : /blog/ordering-posts
   ? !ruby/symbol title
-  : "Testing Title Newer"
+  : "Order Aware Blog Engine"
 - 
   ? !ruby/symbol date
   : 10/10/2012
@@ -24,4 +24,4 @@
   ? !ruby/symbol slug
   : /blog/hello
   ? !ruby/symbol title
-  : "Testing title"
+  : "Hello World"

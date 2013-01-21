@@ -45,6 +45,7 @@ get "/blog/:post" do
 	@post_meta = posts.find{|x| x[:slug] == "/blog/"+params[:post]}
 	post_file_contents = File.read("posts/"+@post_meta[:filename]+".md")
 	markdown = post_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
+	@post_title = @post_meta[:title]
 	@post_content = RDiscount.new(markdown.post_match).to_html
 	haml :post
 end
