@@ -1,7 +1,8 @@
-# Blog Post Ordering
+---
+title: Testing Title Newer
+slug: ordering-posts
+date: 01/01/2013
+---
+# Order aware Blog Post
 
-The next logical step with the implementation was to make the blog posts order aware. In order for that to happen, I need more than one blog post!
-
-Cheers
-
-&mdash; Adam
+This is a test blog post with some markdown content

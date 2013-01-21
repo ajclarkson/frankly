@@ -1,7 +1,16 @@
-# Hello, World!
+---
+title: Testing title
+slug: hello
+date: 10/10/2012
+---
+# Hello World
 
-So in true programming, ubiquitous style, the first post of any blog should be a "Hello, World!". That's pretty much all, other than to say Frankly now, as of January 17th 2013, has basic blog awareness!
+This is a test blog post with some markdown content
 
-Cheers
+---
 
-&mdash; Adam
+Freak, two HR element situation
+
+---
+
+What happens here?

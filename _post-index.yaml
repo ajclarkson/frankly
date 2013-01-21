@@ -1,23 +1,27 @@
 --- 
 - 
-  ? !ruby/symbol moddate
-  : 2013-01-17 20:55:49 +00:00
+  ? !ruby/symbol date
+  : 01/01/2013
+  ? !ruby/symbol filename
+  : order-aware
   ? !ruby/symbol next
   : ""
   ? !ruby/symbol previous
-  : /blog/hello-world
+  : /blog/hello
   ? !ruby/symbol slug
-  : /blog/order-aware
+  : /blog/ordering-posts
   ? !ruby/symbol title
-  : "Blog Post Ordering"
+  : "Testing Title Newer"
 - 
-  ? !ruby/symbol moddate
-  : 2013-01-17 20:07:35 +00:00
+  ? !ruby/symbol date
+  : 10/10/2012
+  ? !ruby/symbol filename
+  : hello-world
   ? !ruby/symbol next
-  : /blog/order-aware
+  : /blog/ordering-posts
   ? !ruby/symbol previous
   : ""
   ? !ruby/symbol slug
-  : /blog/hello-world
+  : /blog/hello
   ? !ruby/symbol title
-  : "Hello, World!"
+  : "Testing title"

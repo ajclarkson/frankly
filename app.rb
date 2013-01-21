@@ -11,12 +11,12 @@ helpers do
   end
   def show_post_navigation(previous_name="Older", next_name="Newer")
   	nav_string = "<nav id='post-navigation' class='cf'>"
-  	if @previous_article != "" 
-  		nav_string.concat("<div id='previous-navigation'><a href='"+@previous_article+"'>"+ previous_name + "</a></div>")
+  	if @post_meta[:previous] != "" 
+  		nav_string.concat("<div id='previous-navigation'><a href='"+@post_meta[:previous]+"'>"+ previous_name + "</a></div>")
   	end
 
-  	if @next_article != ""
-  		nav_string.concat("<div id='next-navigation'><a href='"+@next_article+"'>"+ next_name +"</a></div>")
+  	if @post_meta[:next] != ""
+  		nav_string.concat("<div id='next-navigation'><a href='"+@post_meta[:next]+"'>"+ next_name +"</a></div>")
   	end
   	return nav_string.concat("</nav>")
   end
@@ -41,17 +41,10 @@ get "/:page" do
 end
 
 get "/blog/:post" do
-	@post_content = RDiscount.new(File.open("posts/"+ params["post"]+ ".md").read).to_html
-	@posts = YAML::load(File.open("_post-index.yaml"))
-	# @post_data = @posts.select{|p| p[:slug] == "/blog/"+params[:post]}
-	# Not a ruby way?
-	@posts.each do |blogpost|
-		if blogpost[:slug] == "/blog/"+params["post"]
-			@previous_article = blogpost[:previous]
-			@next_article = blogpost[:next]
-			puts "next" + @next_article
-			puts "previous" + @previous_article
-		end
-	end
+	posts = YAML::load(File.open"_post-index.yaml")
+	@post_meta = posts.find{|x| x[:slug] == "/blog/"+params[:post]}
+	post_file_contents = File.read("posts/"+@post_meta[:filename]+".md")
+	markdown = post_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
+	@post_content = RDiscount.new(markdown.post_match).to_html
 	haml :post
 end

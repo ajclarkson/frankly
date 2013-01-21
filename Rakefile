@@ -17,7 +17,6 @@ require 'nokogiri'
 require 'yaml'
 require 'ya2yaml'
 
-$KCODE = "U"
 
 desc "Generate Page Navigation"
 task :generate do 
@@ -59,36 +58,43 @@ task :generate do
 		end
 	}
 
-	posts = []
-	files = Dir.glob("posts/*").reverse
-	files.each_with_index do |file, index|
-		post = File.basename(file, '.*')
-		@post_content = RDiscount.new(File.open(file).read).to_html
-		post_title = Nokogiri::HTML::DocumentFragment.parse(@post_content).css('h1').inner_html()
-		next_file = previous_file = ""
-		if index != 0 && !File.basename(next_file, '.*').nil?
-			next_file = "/blog/"+File.basename(files[index-1], '.*')
-			puts next_file
-		end
-
-		if index != files.size-1 && !File.basename(previous_file, '.*').nil?
-			previous_file = "/blog/"+File.basename(files[index+1], '.*')
-			puts previous_file
-		end
-
-		posts.push({
-			:title => post_title,
-			:slug => "/blog/"+post,
-			:moddate => File.mtime(file),
-			:next => next_file,
-			:previous => previous_file
-			})
-	end
-
-	File.open('_post-index.yaml', 'w'){ |f|
-		f.write posts.sort_by{|post| post[:moddate]}.reverse.ya2yaml
-
-	}
-
+	Rake::Task["generate_post_index"].execute
 
 end 
+
+task :generate_post_index do
+	posts = []
+	files = Dir.glob("posts/*")
+	files.each do |file|
+		file_contents = File.read(file)
+		begin
+			if (markdown = file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m))
+				article = markdown.post_match
+				metadata = YAML.load(markdown[:headers])
+				posts.push({
+					:filename => File.basename(file, '.*'),
+					:title => metadata['title'],
+					:slug => "/blog/"+metadata['slug'],
+					:date => metadata['date'],
+					:next => "",
+					:previous => ""
+					})
+			end
+		rescue => e
+			 puts "YAML Exception reading #{file}: #{e.message}"
+		end	
+	end
+	posts = posts.sort_by{|post| post[:date]}
+	posts.each_with_index do |post, index|
+		if index != 0
+			post[:next] = posts[index-1][:slug]
+		end
+
+		if index != posts.size-1
+			post[:previous] = posts[index+1][:slug]
+		end
+	end
+	File.open('_post-index.yaml', 'w+'){ |f|
+		f.write posts.ya2yaml
+	}
+end
