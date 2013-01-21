@@ -1,6 +1,6 @@
 %section#site-content.wrap
 	%article
 		%h1= @post_title
-		=@post_meta[:date]
+		=show_post_date
 		=@post_content
 		=show_post_navigation("← Older", "Newer →")

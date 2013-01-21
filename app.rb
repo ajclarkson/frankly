@@ -17,6 +17,9 @@ helpers do
   	end
   	return nav_string.concat("</nav>")
   end
+  def show_post_date(format="%d/%m/%Y")
+  	return Time.parse(@post_meta[:date]).strftime(format)
+  end
 end
 
 get "/" do
