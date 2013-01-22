@@ -3,11 +3,26 @@
   ? !ruby/symbol author
   : ajclarkson
   ? !ruby/symbol date
+  : "2013-01-22 12:33"
+  ? !ruby/symbol filename
+  : 2013-01-22-v0-dot-9-released
+  ? !ruby/symbol next
+  : ""
+  ? !ruby/symbol previous
+  : /blog/hello-world
+  ? !ruby/symbol slug
+  : /blog/beta-released
+  ? !ruby/symbol title
+  : "v0.9 Released!"
+- 
+  ? !ruby/symbol author
+  : ajclarkson
+  ? !ruby/symbol date
   : "2013-01-21 11:45"
   ? !ruby/symbol filename
   : 2013-01-21-hello-world
   ? !ruby/symbol next
-  : ""
+  : /blog/beta-released
   ? !ruby/symbol previous
   : ""
   ? !ruby/symbol slug
