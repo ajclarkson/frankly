@@ -51,6 +51,11 @@ get "/blog" do
 	haml :blog
 end
 
+get "/rss.xml" do
+  @posts = YAML::load(File.open("_post-index.yaml"))
+  builder :rss
+end
+
 get "/:page" do
   pages = YAML::load(File.open"_page-index.yaml")
   @page_meta = pages.find{|x| x[:slug] == "/#{params[:page]}"}

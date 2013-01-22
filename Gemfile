@@ -9,6 +9,7 @@ gem "rdiscount"
 gem "nokogiri"
 gem "ya2yaml"
 gem "stringex"
+gem "builder"
 
 group :development do
 	gem 'heroku'
