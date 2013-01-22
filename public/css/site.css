@@ -179,3 +179,44 @@ footer #colophon {
 	width:40%;
 	float:right;
 }
+
+/* Prettify Styles */
+/* PRETTIFY */
+.prettyprint {
+  font-size: 1em;
+  padding:.75em;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+  white-space: pre-wrap;
+  color:#ccc;
+  -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+  /* css-3 */
+
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+
+}
+.prettyprint li {
+  line-height: 24px;
+}
+.prettyprint ol {
+  list-style-position: inside;
+  padding: 0 0 0 10px;
+}
+.linenumbers {
+  margin-left: 1em;
+}
+.pln {
+  color: #ccc;
+}
