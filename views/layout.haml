@@ -19,7 +19,7 @@
 			= render :partial => "shared/nav"
 		= yield
 
-		%footer.wrap.small
+		%footer.wrap
 			%section#github-message
 				%h2 Latest Commit
 				%p=show_latest_commit
@@ -32,6 +32,7 @@
 					%a{:href=>"http://heroku.com"} Heroku.
 					Unless stated otherwise all content is copyright 
 					%a{:href => "http://twitter.com/ajclarkson"}ajclarkson
-					2013. Subscribe for 
-					%a{:href => "/rss.xml"} updates.
+					2013. 
+					%a{:href => "/rss.xml"} Subscribe 
+					for updates.
 		%script{ :src => '/javascript/google-code-prettify/prettify.js', :type => 'text/javascript'}

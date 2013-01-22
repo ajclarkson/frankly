@@ -1,13 +1,15 @@
-Frankly runs on the incredibly lightweight Sinatra framework for Ruby. As everything has been hand-coded from the ground up, there is absolutely no unnecessary functionality or bloat to the app. It simply takes _your_ files, applies _your_ templates, generates a few helpful things for you along the way and thats it. It's your content and you're in control.
-
+Frankly makes publishing pages and articles on the web simple. It is a hand-coded static page and blog platform that has been built on top of the incredibly lightweight Sinatra framework, optimised to give the best performance while keeping you in control of your content.
 
 ## No Complex CMS, Just _Write_
 
-With Frankly, the focus is where it should be, on the _content_. All of your content is simply written in [Markdown](http://daringfireball.net/markdown). No more jumping through hoops with rich text editing plugins and CMS backends, you can use whatever text editor you like, and enjoy the writing experience again. When you're done, you're nothing more than a git commit away from having your latest posts online.
+Frankly takes websites back to basics. While powerful database run systems are fantastic, they often take the focus _away_ from content. At the end of the day, your content is your site, so there must be a better way? 
 
+By allowing you to author your content using [Markdown](http://daringfireball.net/markdown), you can write in whatever environment you want. When you're done writing, you simply run a helper script and commit your changes to a git repository. That's it! Your site is updated and your content remains in markdown format, so you can jump in and make changes whenever you like. No more wrestling with a web based Rich Text Editor to try and get what you want, you can also input inline HTML directly into your markdown files if you want that extra level of customisation.
 
-## Git Deployed & Secure
+## Powerful Templating
 
-Chances are if you do any coding, you've come across Git. It's an excellent version control system, and it's at the heart of Frankly. Whenever you write a new article, you commit your changes in git, and it's live on your site. No FTP, no nonsense.
+The look and feel of your site is controlled using the powerful [HAML](http://haml.info) language. If you've never used it before, it's very straightforward, and also allows for inline HTML. Backed by your CSS and Javascript files you can customise your site to your hearts desire, then simply add in a couple of helpful placeholder tags to show where you want your page titles, content, and metadata to appear. It even generates previous/next navigation for your blog posts for you.
 
-Because everything is done via Git, there's also no web accessible admin panel to your site. These are often targets of hacking attempts, so why bother with one?
+## Take A Look Around
+
+If all of this interests you, then head over to the [download](/get-frankly) page and have a look over the Getting Started hints and tips. All of the code for this site is right in the [GitHub](http://github.com/ajclarkson/frankly) Repository, so get stuck in and create something beautiful with Frankly.
