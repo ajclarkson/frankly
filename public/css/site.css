@@ -46,7 +46,13 @@ a:hover, a:active {
 	margin-right:auto;
 	margin-left:auto;
 	max-width:760px;
+	padding:0 2em;
 }
+	@media screen and (max-width:600px){
+		.wrap {
+			padding:1em;
+		}
+	}
 
 /* Page Structure */
 
@@ -57,6 +63,13 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
+	@media screen and (max-width:720px){
+		html {
+			font-size:100%;
+		}
+	}
+
+
 /* Site Header */
 
 #site-header {
@@ -65,6 +78,18 @@ html {
 
 	#branding {
 		float:left;
+	}
+
+	@media screen and (max-width:550px){
+		#site-header {
+			margin-bottom:0em;
+		}
+		#branding{
+			float:none;
+			display:block;
+			width:210px;
+			margin:auto;
+		}
 	}
 
 	#site-header h1 {
@@ -108,6 +133,18 @@ html {
 		nav li:last-child:after {
 			content:'';
 		}
+
+		@media screen and (max-width:550px){
+		#site-header nav {
+			margin:0 auto;
+			float:none;
+			width:210px;
+		}
+			#site-header nav ul {
+				text-align:center;
+			}
+	}
+
 	.github-ribbon {
 		position: absolute; 
 		top: 0; 
@@ -175,12 +212,13 @@ article footer {
 footer {
 	border-top:1px solid #CCCCCC;
 	margin-top:5em;
-	padding:1em 0em;
+	padding:2em 0em;
 	width:100%;
 	font-size: 0.75em; line-height: 1.7142857142857142857142857142857em;
 	color:#AAAAAA;
 }
 	footer h2 {
+		padding-top:2em;
 		font-size:1.2em;
 		text-shadow:none;
 		font-style:normal;
