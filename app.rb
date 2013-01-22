@@ -1,3 +1,4 @@
+require 'open-uri'
 set :haml, :format => :html5
 helpers do
   def render(*args)
@@ -18,21 +19,24 @@ helpers do
   	return nav_string.concat("</nav>")
   end
   def show_post_date(format="%d/%m/%Y", post_meta=@post_meta)
-
   	return Time.parse(post_meta[:date]).strftime(format)
   end
-  def ordinalize
-    if (11..13).include?(self % 100)
-      "#{self}th"
-    else
-      case self % 10
-        when 1; "#{self}st"
-        when 2; "#{self}nd"
-        when 3; "#{self}rd"
-        else    "#{self}th"
-      end
+  def show_latest_commit
+    feed = open('https://github.com/ajclarkson/frankly/commits/master.atom') {|f| f.read }
+    items = parse feed
+    item = items.first
+    return item[:title]
+
+  end
+  def parse feed
+    doc = Nokogiri::XML feed
+    doc.search('entry').map do |doc_entry|
+      entry = { }
+      entry[:title] = doc_entry.at('title').text
+      entry
     end
   end
+  
 end
 
 get "/" do

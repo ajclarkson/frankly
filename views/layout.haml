@@ -18,9 +18,17 @@
 		= yield
 
 		%footer.wrap
-			%p
-				Powered by 
-				%a{:href=> "/"} Frankly 
-				\:: &copy; 2013 
-				%a{:href => "http://twitter.com/ajclarkson"}@ajclarkson
+			%section#github-message
+				%h2 Latest Commit
+				%p=show_latest_commit
+			%section#colophon
+				%h2 Colophon
+				%p
+					This site is powered by
+					%a{:href=> "/"} Frankly
+					and hosted by
+					%a{:href=>"http://heroku.com"} Heroku.
+					Unless stated otherwise all content is copyright 
+					%a{:href => "http://twitter.com/ajclarkson"}ajclarkson
+					2013.
 	%script{ :href=> '/javascript/prettify.js', :type => 'text/javascript'}

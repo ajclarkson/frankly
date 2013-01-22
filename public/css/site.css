@@ -154,11 +154,28 @@ ul#post-archive {
 
 
 footer {
-	text-align:center;
+	
 	border-top:1px solid #ccc;
 	padding:1em 0;
 	margin-top:5em;
 	color:#aaa;
 	width:100%;
-	font-size: 0.875em; line-height: 1.7142857142857142857142857142857em;
+	font-size: 0.75em; line-height: 1.7142857142857142857142857142857em;
+}
+footer h2 {
+	font-size:1.2em;
+	color:#aaa;
+	text-shadow:none;
+	font-style:normal;
+
+}
+
+footer #github-message {
+	width:50%;
+	float:left;
+	font-style: italic;
+}
+footer #colophon {
+	width:40%;
+	float:right;
 }
