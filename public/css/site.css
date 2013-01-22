@@ -1,101 +1,141 @@
-body {
-	margin:0;
-	padding:0;
-	font:125%/1.5 Georgia, serif;
-}
+/*
+Theme: Frankly
+Author: Adam Clarkson
+Author URI: http://ajclarkson.co.uk
+Description: The default theme for the Frankly CMS.
+*/
 
-h1, h2, h3, h4, h5, h6 {font-family:Helvetica, sans-serif;color:#222;text-shadow:1px 1px 1px rgba(0,0,0,.10)}
-h1 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */ 
-h2 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
-
-h3 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */ 
-h4 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
-h5 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
-h6 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
-p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
-small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
-
-
-a:link, a:visited {
-	color:#4388a8;
-	text-decoration:none;
-	transition: opacity .2s ease-in-out;
-   -moz-transition: opacity .2s ease-in-out;
-   -webkit-transition: opacity .2s ease-in-out;
-}
-
-a:hover, a:active {
-	padding-bottom:5px;
-	border-bottom:1px dotted  #4388a8;
-	color:#aaa;
-}
+/* Clearfix */
 
 .cf:before,
 .cf:after {
     content: " ";
     display: table;
 }
-
 .cf:after {
     clear: both;
 }
 
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {font-family:Helvetica, sans-serif;color:#222;text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+h1 {margin: 0; font-size: 2.25em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em} /* 36px / 48px */ 
+h2 {margin: 0; font-size: 1.5em; line-height: 1em; margin-bottom: 1em} /* 24px / 24px */
+h3 {margin: 0; font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em} /* 21px / 24px */
+h4 {margin: 0; font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em} /* 18px / 24px */
+p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em} /* 16px / 24px */
+small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em} /* 14px / 24px */
+
+/* Shared Elements */
+
+a:link, a:visited {
+	color:#4388a8;
+	text-decoration:none;
+	transition: opacity .2s ease-in-out;
+   	-moz-transition: opacity .2s ease-in-out;
+   	-webkit-transition: opacity .2s ease-in-out;
+}
+
+a:hover, a:active {
+	border-bottom:1px dotted #4388a8;
+	padding-bottom:5px;
+	color:#aaa;
+}
+
 .wrap {
-	max-width:760px;
 	margin-right:auto;
 	margin-left:auto;
+	max-width:760px;
 }
 
-#branding {
-	float:left;
-}
-header {
-	margin-top:5em;
-	margin-bottom:2em;
-}
+/* Page Structure */
 
-#site-header h1 {
-	font-size: 3.75em; line-height: 1.2em; /* 60px / 72px */
-	letter-spacing:-1px;
-	margin-bottom:0;
-
+html {
+	font:125%/1.5 Georgia, serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 
-header h1 a, header h1 a:visited {
-	color:black;
-	text-decoration:none;
+/* Site Header */
+
+#site-header {
+	margin:5em auto 2em;
 }
 
-header h1 a:hover, header h1 a:active {
-	color:#aaa;
-	border:none;
-}
+	#branding {
+		float:left;
+	}
 
-header .tagline {
-	margin-top:-.9em;
-}
+	#site-header h1 {
+		margin-bottom:0;
+		font-size: 3.75em; line-height: 1.2em; /* 60px / 72px */
+		letter-spacing:-1px;
+	}
 
-header nav {
-	float:right;
-	color:#222;
-}
+	#site-header h1 a, #site-header h1 a:visited {
+		color:black;
+		text-decoration:none;
+	}
 
-header nav ul {
-	list-style:none;
-	margin:2em 2em 2em 0;
+	#site-header h1 a:hover, #site-header h1 a:active {
+		border:none;
+		color:#aaa;
+	}
+
+	#site-header .tagline {
+		margin-top:-0.9em;
+	}
+
+	#site-header nav {
+		float:right;
+		color:#222222;
+	}
+
+		#site-header nav ul {
+			list-style:none;
+			margin:2em 2em 2em 0;
+		}
+
+		header nav li {
+			display:inline;
+		}
+
+		nav li:after {
+			content: '\00A0 \2022 \00A0';
+		}
+		
+		nav li:last-child:after {
+			content:'';
+		}
+	.github-ribbon {
+		position: absolute; 
+		top: 0; 
+		right: 0; 
+		border: 0;
+	}
+
+/* Article */
+
+article header {
+	padding-bottom:1em;
+	text-align:center;
+	font-style:italic;
+}
+	article header h1 {
+		margin-bottom:0em;
+		padding-bottom:0em;
+		font-family:Georgia, serif;
+		font-weight:normal;
+	}
 	
-}
+	article header time {
+		margin-top:0em;
+		padding-top:0em;
+		font-size:0.875em;
+		color:#AAAAAA;
+	}
 
-header nav li {
-	display:inline;
-	
-}
-nav li:after {
-	content: '\00A0 \2022 \00A0';
-}
-nav li:last-child:after {
-	content:'';
-}
 
 h2 em {
 	font-family:Georgia, serif;
@@ -103,120 +143,88 @@ h2 em {
 	text-shadow:none;
 }
 
-
-.github-ribbon {
-	position: absolute; top: 0; right: 0; border: 0;
-}
-article header {
+#post-archive {
+	margin:0em;
+	list-style-type:none;
 	text-align:center;
-	font-style:italic;
-	padding-bottom:1em;
-	
-}
-article header h1 {
-	font-family:Georgia, serif;
-	font-weight:normal;
-	padding-bottom:0;
-	margin-bottom:0em;
 }
 
-article header time {
-	font-size:0.875em;
-	margin-top:0;
-	padding-top:0;
-	color:#aaa;
-}
+	#post-archive li {
+		margin:1em;
+		text-align:left;
+	}
+	#post-archive time {
+		margin-right:1em;
+		color:#AAAAAA;
+	}
+
 
 article footer {
 	border:none;
 }
-#previous-navigation {
-	float:left;
-}
-#next-navigation {
-	float:right;
-}
+	#previous-navigation {
+		float:left;
+	}
+	
+	#next-navigation {
+		float:right;
+	}
 
-ul#post-archive {
-	list-style-type:none;
-	text-align:center;
-	margin:0;
-}
-
-#post-archive li {
-	margin:1em;
-	text-align:left;
-}
-#post-archive time {
-	margin-right:1em;
-	color:#aaa;
-}
-
+/* Site Footer */
 
 footer {
-	
-	border-top:1px solid #ccc;
-	padding:1em 0;
+	border-top:1px solid #CCCCCC;
 	margin-top:5em;
-	color:#aaa;
+	padding:1em 0em;
 	width:100%;
 	font-size: 0.75em; line-height: 1.7142857142857142857142857142857em;
+	color:#AAAAAA;
 }
-footer h2 {
-	font-size:1.2em;
-	color:#aaa;
-	text-shadow:none;
-	font-style:normal;
+	footer h2 {
+		font-size:1.2em;
+		text-shadow:none;
+		font-style:normal;
+		color:#AAAAAA;
+	}
 
-}
+	footer #github-message {
+		width:50%;
+		float:left;
+		font-style: italic;
+	}
 
-footer #github-message {
-	width:50%;
-	float:left;
-	font-style: italic;
-}
-footer #colophon {
-	width:40%;
-	float:right;
-}
+	footer #colophon {
+		width:40%;
+		float:right;
+	}
 
-/* Prettify Styles */
-/* PRETTIFY */
+/* Code */
+
 .prettyprint {
-  font-size: 1em;
-  padding:.75em;
-  display: block;
-  background-color: rgba(0, 0, 0, 0.8);
-  white-space: pre-wrap;
-  color:#ccc;
-  -webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-  /* css-3 */
-
-  white-space: -moz-pre-wrap;
-  /* Mozilla, since 1999 */
-
-  white-space: -pre-wrap;
-  /* Opera 4-6 */
-
-  white-space: -o-pre-wrap;
-  /* Opera 7 */
-
-  word-wrap: break-word;
-  /* Internet Explorer 5.5+ */
-
+	font-size: 1em;
+	padding:.75em;
+	display: block;
+	background-color: rgba(0, 0, 0, 0.8);
+	white-space: pre-wrap;
+	color:#ccc;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
 }
-.prettyprint li {
-  line-height: 24px;
-}
-.prettyprint ol {
-  list-style-position: inside;
-  padding: 0 0 0 10px;
-}
-.linenumbers {
-  margin-left: 1em;
-}
-.pln {
-  color: #ccc;
-}
+	.prettyprint li {
+  		line-height: 24px;
+	}
+	.prettyprint ol {
+  		list-style-position: inside;
+  		padding: 0 0 0 10px;
+	}
+	.linenumbers {
+  		margin-left: 1em;
+	}
+	.pln {
+  		color: #ccc;
+	}
