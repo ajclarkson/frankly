@@ -1,5 +1,7 @@
 require 'open-uri'
+require 'sinatra/config_file'
 set :haml, :format => :html5
+config_file "site-config.yaml"
 helpers do
   def render(*args)
     if args.first.is_a?(Hash) && args.first.keys.include?(:partial)
@@ -9,7 +11,7 @@ helpers do
     end
   end
   def return_base_title
-    return "&mdash; Frankly"
+    return settings.base_title
   end
   def show_post_navigation(previous_name="Older", next_name="Newer")
   	nav_string = "<nav id='post-navigation' class='cf'>"
@@ -44,7 +46,7 @@ end
 
 get "/" do
 	@page_content = RDiscount.new(File.open("pages/index.md").read).to_html
-	@title = "Frankly" 
+	@title = "Frankly"
 	haml :page
 end
 
