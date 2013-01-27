@@ -8,6 +8,9 @@ helpers do
       super
     end
   end
+  def return_base_title
+    return "&mdash; Frankly"
+  end
   def show_post_navigation(previous_name="Older", next_name="Newer")
   	nav_string = "<nav id='post-navigation' class='cf'>"
   	if @post_meta[:previous] != "" 
@@ -47,7 +50,7 @@ end
 
 get "/blog" do
 	@posts = YAML::load(File.open("_post-index.yaml"))
-	@title = "Archive &mdash; Frankly"
+	@title = "Archive #{return_base_title}"
 	haml :blog
 end
 
@@ -63,7 +66,7 @@ get "/:page" do
   markdown = page_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
   @page_title = @page_meta[:title]
   @page_content = RDiscount.new(markdown.post_match).to_html
-	@title = "#{@page_title} &mdash; Frankly"
+	@title = "#{@page_title} #{return_base_title}"
 	haml :page
 end
 
@@ -74,6 +77,6 @@ get "/blog/:post" do
 	markdown = post_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
 	@post_title = @post_meta[:title]
 	@post_content = RDiscount.new(markdown.post_match).to_html
-	@title = "#{@post_title} &mdash; Frankly"
+	@title = "#{@post_title} #{return_base_title}"
 	haml :post
 end
