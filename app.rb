@@ -10,8 +10,13 @@ helpers do
       super
     end
   end
-  def return_base_title
-    return settings.base_title
+  def construct_title(page_title="")
+    if page_title.empty?
+      title = settings.base_title
+    else
+      title = "#{page_title} #{settings.title_seperator} #{settings.base_title}"
+    end
+    return title
   end
   def show_post_navigation(previous_name="Older", next_name="Newer")
   	nav_string = "<nav id='post-navigation' class='cf'>"
@@ -46,13 +51,13 @@ end
 
 get "/" do
 	@page_content = RDiscount.new(File.open("pages/index.md").read).to_html
-	@title = "Frankly"
+	@title = construct_title()
 	haml :page
 end
 
 get "/blog" do
 	@posts = YAML::load(File.open("_post-index.yaml"))
-	@title = "Archive #{return_base_title}"
+	@title = construct_title("Archive")
 	haml :blog
 end
 
@@ -68,7 +73,7 @@ get "/:page" do
   markdown = page_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
   @page_title = @page_meta[:title]
   @page_content = RDiscount.new(markdown.post_match).to_html
-	@title = "#{@page_title} #{return_base_title}"
+	@title = construct_title(@page_title)
 	haml :page
 end
 
@@ -79,6 +84,6 @@ get "/blog/:post" do
 	markdown = post_file_contents.match(/^(?<headers>---\s*\n.*?\n?)^(---\s*$\n?)/m)
 	@post_title = @post_meta[:title]
 	@post_content = RDiscount.new(markdown.post_match).to_html
-	@title = "#{@post_title} #{return_base_title}"
+	@title = construct_title(@post_title)
 	haml :post
 end
