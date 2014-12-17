@@ -6,7 +6,6 @@ Frankly is a lightweight web publishing platform that runs on the Sinatra framew
 
 Primarily designed for writers who code, Frankly provides a stable platform for deploying any website to a Ruby server (such as Heroku). This repository contains all of the source code for the CMS and the frankly site, which it is powering, and as such is reasonably self documenting. 
 
-A live demo version of the code can be found running the [Frankly Site](http://franklycms.herokuapp.com)
 
 ## Getting Started
 
